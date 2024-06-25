@@ -1,7 +1,7 @@
 use futures_util::stream::StreamExt;
 use http::{header, Request, StatusCode};
 use httpdate::fmt_http_date;
-use hyper_staticfile::Static;
+use hyper_staticfile_jsutf8::Static;
 use std::future::Future;
 use std::io::{Cursor, Error as IoError, Write};
 use std::process::Command;
@@ -208,6 +208,20 @@ async fn changes_content_type_on_extension() {
     assert_eq!(
         res.headers().get(header::CONTENT_TYPE),
         Some(&header::HeaderValue::from_static("image/gif"))
+    );
+}
+
+// 验证js文件的编码
+#[tokio::test]
+async fn changes_content_type_on_extension_js() {
+    let harness = Harness::new(vec![("file1.js", "this is file1")]);
+
+    let res = harness.get("/file1.js").await.unwrap();
+    assert_eq!(
+        res.headers().get(header::CONTENT_TYPE),
+        Some(&header::HeaderValue::from_static(
+            "application/javascript; charset=utf-8"
+        ))
     );
 }
 

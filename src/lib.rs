@@ -1,4 +1,4 @@
-#![crate_name = "hyper_staticfile"]
+#![crate_name = "hyper_staticfile_jsutf8"]
 #![deny(missing_docs)]
 
 //! Static file-serving for [Hyper 0.14](https://github.com/hyperium/hyper).
@@ -14,7 +14,7 @@
 //!
 //! ```rust
 //! // Instance of `Static` containing configuration.
-//! let static_ = hyper_staticfile::Static::new("my/doc/root/");
+//! let static_ = hyper_staticfile_jsutf8::Static::new("my/doc/root/");
 //!
 //! // A dummy request, but normally obtained from Hyper.
 //! let request = http::Request::get("/foo/bar.txt")
@@ -47,13 +47,13 @@
 //!         .unwrap();
 //!
 //!     // First, resolve the request. Returns a future for a `ResolveResult`.
-//!     let result = hyper_staticfile::resolve(&root, &request)
+//!     let result = hyper_staticfile_jsutf8::resolve(&root, &request)
 //!         .await
 //!         .unwrap();
 //!
 //!     // Then, build a response based on the result.
 //!     // The `ResponseBuilder` is typically a short-lived, per-request instance.
-//!     let response = hyper_staticfile::ResponseBuilder::new()
+//!     let response = hyper_staticfile_jsutf8::ResponseBuilder::new()
 //!         .request(&request)
 //!         .build(result)
 //!         .unwrap();

@@ -8,7 +8,7 @@ use http::response::Builder as ResponseBuilder;
 use http::{header, StatusCode};
 use hyper::service::{make_service_fn, service_fn};
 use hyper::{Body, Request, Response};
-use hyper_staticfile::Static;
+use hyper_staticfile_jsutf8::Static;
 use std::io::Error as IoError;
 use std::path::Path;
 

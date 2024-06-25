@@ -1,9 +1,9 @@
 [package]
-name = "hyper-staticfile"
-version = "0.9.5"
+name = "hyper-staticfile-jsutf8"
+version = "0.0.1"
 authors = ["hyper-staticfile contributors"]
-description = "Static file serving for Hyper 0.14"
-repository = "https://github.com/stephank/hyper-staticfile"
+description = "Static file serving for Hyper 0.14,whick fix js response with no correct content-type"
+repository = "https://github.com/whyer11/hyper-staticfile-jsutf8"
 license = "MIT"
 readme = "README.md"
 documentation = "https://docs.rs/hyper-staticfile"
